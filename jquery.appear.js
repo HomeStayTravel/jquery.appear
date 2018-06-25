@@ -15,7 +15,8 @@
   var check_lock = false;
   var defaults = {
     interval: 250,
-    force_process: false
+    force_process: false,
+    scroll_selector: window
   };
   var $window = $(window);
 
@@ -93,8 +94,7 @@
 
           setTimeout(process, opts.interval);
         };
-
-        $(window).scroll(on_check).resize(on_check);
+        $(opts.scroll_selector).scroll(on_check).resize(on_check);
         check_binded = true;
       }
 
